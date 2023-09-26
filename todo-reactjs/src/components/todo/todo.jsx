@@ -9,6 +9,7 @@ export const Todo = () => {
   const [todoList, setTodoList] = useState([]);
 
   //todo-completed
+  const [ todocomplete, setTodocomplete] =useState([]);
   const handleTodoChange = (event) => {
     setTodo(event.target.value);
   };
@@ -29,11 +30,10 @@ export const Todo = () => {
   //to check addedlist
 
   const handleTodoCheckTodoList = (todoId) => {
-    const updatedTodoList = todoList.map((todo) =>
-      todo._id === todoId ? { ...todo, isComplete: !todo.isComplete } : todo
-    );
+    let updatedTodoList = todoList.map((todo) =>
+      todo._id === todoId ? { ...todo, isComplete : !todo.isComplete } : todo);
+     
     setTodoList(updatedTodoList);
-
     localStorage.setItem("todo", JSON.stringify(updatedTodoList));
   };
 
@@ -42,11 +42,26 @@ export const Todo = () => {
     localStorage.removeItem("todo");
   };
 
-  //to get todolist
+ //to clear
+  const handleTodoClear=(todoId)=>{
+    const filterdTodo = todoList.filter(({_id})=>
+        _id !== todoId
+    )
+ setTodocomplete(filterdTodo);
+ localStorage.setItem("todocomplete",JSON.stringify(filterdTodo));
+}
 
+
+  //to get todolist
   useEffect(() => {
     const todoWritten = JSON.parse(localStorage.getItem("todo"));
     todoWritten && setTodoList(todoWritten);
+  }, []);
+
+  //to get completed todo
+  useEffect(() => {
+    const todoWritten = JSON.parse(localStorage.getItem("todocomplete"));
+    todoWritten && setTodocomplete(todoWritten);
   }, []);
 
   return (
@@ -72,14 +87,17 @@ export const Todo = () => {
                     className="user-task heading-5 "
                     onChange={() => handleTodoCheckTodoList(_id)}
                     checked={isComplete}
+                    
                   />
                   <label
                     for={_id}
-                    className={
-                      isComplete
-                        ? "todo-list-heading  cross d-flex "
-                        : "todo-list-heading "
-                    }
+                    className={isComplete ? "complete" : "incomplete "}
+                    onClick={()=>handleTodoClear(_id)}
+                  
+                  >
+                    {todo}
+                  </label>
+                  <label
                   >
                     {todo}
                   </label>

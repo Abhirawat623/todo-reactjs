@@ -9,15 +9,13 @@
 }
 .todo-container {
  width: 100%;
-  min-height: 40vh;
-  border: 5px solid var(--secondary-color);
+  height: 60vh;
   padding: 5px;
   z-index: 0;
   border-radius: 5px;
- background: linear-gradient(#BC3D2F,#BC43AD);
  color: white;
  overflow-y: scroll;
-
+ background-color: white;
 }
 
 .todo-input{
@@ -26,8 +24,9 @@
   line-height: 2rem;
   font-size: 1.4rem;
   border: none;
-  border-bottom: 5px solid var(--secondary-color);
   text-align: center;
+  border-radius: 5px;
+
 }
 .todo-input:focus{
   outline: none;
@@ -35,20 +34,32 @@
   .todo-list{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
-   
-    max-height: 40vh;
-    font-size: 1.3rem;
+    gap:5px;
+    font-size: 1.8rem;
     color: white;
+    
   
   }
   .reset-btn{
     position: fixed;
     right: 18px;
     top:18px;
-    scale: 1.5;
+    scale: 1.8;
    border: none;
-   color: red;
+   color: wheat;
    background: transparent;
   }
+  .complete{
+color: darkgreen;
+  
+
+  }
+
+  .incomplete{
+color: rgb(255, 62, 62);
+
+ 
+  }
+

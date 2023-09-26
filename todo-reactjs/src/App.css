@@ -13,7 +13,8 @@
 }
 
 body{
-  background-color: rgb(255, 249, 249);
+  background:linear-gradient(blue,red);
+overflow-y: none;
 }
 
 .logo{
