@@ -8,8 +8,6 @@ export const Todo = () => {
   //todo list
   const [todoList, setTodoList] = useState([]);
 
-  //todo-completed
-  const [ todocomplete, setTodocomplete] =useState([]);
   const handleTodoChange = (event) => {
     setTodo(event.target.value);
   };
@@ -47,8 +45,8 @@ export const Todo = () => {
     const filterdTodo = todoList.filter(({_id})=>
         _id !== todoId
     )
- setTodocomplete(filterdTodo);
- localStorage.setItem("todocomplete",JSON.stringify(filterdTodo));
+ setTodoList(filterdTodo);
+ localStorage.setItem("todo",JSON.stringify(filterdTodo));
 }
 
 
@@ -58,11 +56,7 @@ export const Todo = () => {
     todoWritten && setTodoList(todoWritten);
   }, []);
 
-  //to get completed todo
-  useEffect(() => {
-    const todoWritten = JSON.parse(localStorage.getItem("todocomplete"));
-    todoWritten && setTodocomplete(todoWritten);
-  }, []);
+
 
   return (
     <div className="app-container">
@@ -94,10 +88,6 @@ export const Todo = () => {
                     className={isComplete ? "complete" : "incomplete "}
                     onClick={()=>handleTodoClear(_id)}
                   
-                  >
-                    {todo}
-                  </label>
-                  <label
                   >
                     {todo}
                   </label>
