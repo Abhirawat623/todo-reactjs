@@ -1,0 +1,21 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+:root{
+--primary-color: rgb(89, 32, 143);
+--secondary-color: #a366ac;
+}
+
+body{
+  background-color: rgb(255, 249, 249);
+}
+
+.logo{
+  width: 9rem;
+  height: 10rem;
+  position: fixed;
+  top:5px;
+  left:42rem;
+}
