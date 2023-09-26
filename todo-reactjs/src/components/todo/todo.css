@@ -43,3 +43,12 @@
     color: white;
   
   }
+  .reset-btn{
+    position: fixed;
+    right: 18px;
+    top:18px;
+    scale: 1.5;
+   border: none;
+   color: red;
+   background: transparent;
+  }

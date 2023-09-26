@@ -18,7 +18,7 @@ export const Todo = () => {
     if (event.key === "Enter" && event.target.value.length > 0) {
       const updatedTodoList = [
         ...todoList,
-        { _id: uuid(), todo, isComplete:false },
+        { _id: uuid(), todo, isComplete: false },
       ];
       setTodoList(updatedTodoList);
       setTodo("");
@@ -35,6 +35,11 @@ export const Todo = () => {
     setTodoList(updatedTodoList);
 
     localStorage.setItem("todo", JSON.stringify(updatedTodoList));
+  };
+
+  const handleRefresh = () => {
+    setTodoList("");
+    localStorage.removeItem("todo");
   };
 
   //to get todolist
@@ -83,6 +88,9 @@ export const Todo = () => {
             })}
         </div>
       </div>
+      <button className="reset-btn" onClick={handleRefresh}>
+        <span class="material-symbols-outlined">refresh</span>
+      </button>
     </div>
   );
 };
