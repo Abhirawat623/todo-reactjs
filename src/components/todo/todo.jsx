@@ -5,13 +5,12 @@ export const Todo = () => {
   //to do
   const [todo, setTodo] = useState("");
 
-  //todo list
   const [todoList, setTodoList] = useState([]);
 
   const handleTodoChange = (event) => {
     setTodo(event.target.value);
   };
-  //written to do in the to do input
+
 
   const handleToDoSubmit = (event) => {
     if (event.key === "Enter" && event.target.value.length > 0) {
