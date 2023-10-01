@@ -2,7 +2,7 @@ import "./todo.css";
 import { useState, useEffect } from "react";
 import { stringify, v4 as uuid } from "uuid";
 export const Todo = () => {
-  //to do
+
   const [todo, setTodo] = useState("");
 
   const [todoList, setTodoList] = useState([]);
@@ -24,7 +24,7 @@ export const Todo = () => {
     }
   };
 
-  //to check addedlist
+  
 
   const handleTodoCheckTodoList = (todoId) => {
     let updatedTodoList = todoList.map((todo) =>
@@ -39,7 +39,7 @@ export const Todo = () => {
     localStorage.removeItem("todo");
   };
 
- //to clear
+ 
   const handleTodoClear=(todoId)=>{
     const filterdTodo = todoList.filter(({_id})=>
         _id !== todoId
@@ -49,7 +49,7 @@ export const Todo = () => {
 }
 
 
-  //to get todolist
+
   useEffect(() => {
     const todoWritten = JSON.parse(localStorage.getItem("todo"));
     todoWritten && setTodoList(todoWritten);
